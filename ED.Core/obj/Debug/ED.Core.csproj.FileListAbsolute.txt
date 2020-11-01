@@ -1,0 +1,9 @@
+E:\Den\100 - 代码项目箱\120 - 未完成项目\ED【实验数据整理项目】2020-9-22启动\ED.Core\ED.Core\bin\Debug\ED.Core.dll
+E:\Den\100 - 代码项目箱\120 - 未完成项目\ED【实验数据整理项目】2020-9-22启动\ED.Core\ED.Core\bin\Debug\ED.Core.pdb
+E:\Den\100 - 代码项目箱\120 - 未完成项目\ED【实验数据整理项目】2020-9-22启动\ED.Core\ED.Core\bin\Debug\System.ValueTuple.dll
+E:\Den\100 - 代码项目箱\120 - 未完成项目\ED【实验数据整理项目】2020-9-22启动\ED.Core\ED.Core\bin\Debug\System.ValueTuple.xml
+E:\Den\100 - 代码项目箱\120 - 未完成项目\ED【实验数据整理项目】2020-9-22启动\ED.Core\ED.Core\obj\Debug\ED.Core.csprojAssemblyReference.cache
+E:\Den\100 - 代码项目箱\120 - 未完成项目\ED【实验数据整理项目】2020-9-22启动\ED.Core\ED.Core\obj\Debug\ED.Core.csproj.CoreCompileInputs.cache
+E:\Den\100 - 代码项目箱\120 - 未完成项目\ED【实验数据整理项目】2020-9-22启动\ED.Core\ED.Core\obj\Debug\ED.Core.csproj.CopyComplete
+E:\Den\100 - 代码项目箱\120 - 未完成项目\ED【实验数据整理项目】2020-9-22启动\ED.Core\ED.Core\obj\Debug\ED.Core.dll
+E:\Den\100 - 代码项目箱\120 - 未完成项目\ED【实验数据整理项目】2020-9-22启动\ED.Core\ED.Core\obj\Debug\ED.Core.pdb
