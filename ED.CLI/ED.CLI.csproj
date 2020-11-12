@@ -65,6 +65,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ED.BLL\ED.BLL.csproj">
+      <Project>{fb37dd53-692f-43e3-9533-65552daa326b}</Project>
+      <Name>ED.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ED.Core\ED.Core.csproj">
       <Project>{6013fabe-dffd-4949-8790-34012dda8670}</Project>
       <Name>ED.Core</Name>
@@ -77,9 +81,9 @@
       <Project>{07489cae-54c5-4527-8aa5-e9ce8e837a72}</Project>
       <Name>ED.NPOI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ED.Logic\ED.Logic.csproj">
-      <Project>{4404b7cc-9169-4905-9d5e-d2c36028986e}</Project>
-      <Name>ED.Logic</Name>
+    <ProjectReference Include="..\ED.ExcRely\ED.ExcRely.csproj">
+      <Project>{a03ee2ac-b757-4c5e-baea-fedab6bcd287}</Project>
+      <Name>ED.ExcRely</Name>
     </ProjectReference>
     <ProjectReference Include="..\ED.SQLite\ED.SQLite.csproj">
       <Project>{21f524e7-e3f2-4ec9-b9fd-cf5eaa1ce538}</Project>

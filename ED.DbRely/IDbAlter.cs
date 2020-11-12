@@ -9,7 +9,9 @@ namespace ED.DbRely
     public interface IDbAlter : IDbQuery
     {
         int Insert(AddedArgs args);
+        int Insert<T>(T tag);
         int Delete(AlterArgs args);
         int Update(AlterArgs args);
+
     }
 }

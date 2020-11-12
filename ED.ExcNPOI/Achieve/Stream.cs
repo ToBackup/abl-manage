@@ -17,6 +17,9 @@ namespace ED.NPOI.Achieve
     {
         protected static IWorkbook work = null;
         protected static ISheet sheet = null;
+
+        public string FileName { get; private set; }
+
         public void Close()
         {
             work?.Close();
@@ -28,9 +31,15 @@ namespace ED.NPOI.Achieve
         }
 
 
-        public bool Open(string path)
+        public bool Open(string path =null)
         {
-            if(path.Contains(".xlsx"))
+            FileName = path;
+            if(path == null)
+            {
+                work = new XSSFWorkbook();
+                work.CreateSheet();
+            }
+            else if(path.Contains(".xlsx"))
                 work = new XSSFWorkbook(path);
             else if(path.Contains(".xls"))
             {

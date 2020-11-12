@@ -9,3 +9,9 @@ E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.ExcRely\obj\Deb
 E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.ExcRely\obj\Debug\ED.ExcRely.csproj.CoreCompileInputs.cache
 E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.ExcRely\obj\Debug\ED.ExcRely.dll
 E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.ExcRely\obj\Debug\ED.ExcRely.pdb
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcRely\bin\Debug\ED.ExcRely.dll
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcRely\bin\Debug\ED.ExcRely.pdb
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcRely\obj\Debug\ED.ExcRely.csprojAssemblyReference.cache
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcRely\obj\Debug\ED.ExcRely.csproj.CoreCompileInputs.cache
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcRely\obj\Debug\ED.ExcRely.dll
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcRely\obj\Debug\ED.ExcRely.pdb

@@ -3,8 +3,10 @@ using ED.SQLite.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace ED.SQLite.Basis
@@ -69,6 +71,55 @@ namespace ED.SQLite.Basis
 
             return ea;
 
+        }
+
+        public static ExecArgs Insert<T>(T tag)
+        {
+            Type tTag = tag.GetType();
+            string skey = string.Empty;
+            string svalue = string.Empty;
+            SQLiteParameter[] param = null;
+
+            List<SQLiteParameter> list = new List<SQLiteParameter>();
+            PropertyInfo[] ppts = tTag.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (PropertyInfo ppt in ppts)
+            {
+                object obj = ppt.GetValue(tag, null);
+                if (obj == null)
+                    continue;
+                else if(obj.GetType() == typeof(int))
+                {
+                    int iPpt = Convert.ToInt32(obj);
+                    if(iPpt>=0)
+                        list.Add(new SQLiteParameter(ppt.Name, iPpt));
+                }
+                else if(obj.GetType() == typeof(DateTime))
+                {
+                    DateTime dtPpt = Convert.ToDateTime(obj);
+                    if (dtPpt > DateTime.MinValue)
+                        list.Add(new SQLiteParameter(ppt.Name, dtPpt));
+                }
+                else
+                {
+                    string sPpt = obj.ToString();
+                    list.Add(new SQLiteParameter(ppt.Name, sPpt));
+                }
+
+                skey += string.Format("{0},", ppt.Name);
+                svalue += string.Format("@{0},", ppt.Name);
+            }
+            param = list.ToArray();
+
+            string cmdText = string.Format("Insert Into {0} ({1}) Values ({2})", tTag.Name, skey, svalue);
+
+            ExecArgs ea = new ExecArgs()
+            {
+                Text = cmdText,
+                Type = CommandType.Text,
+                Param = param
+            };
+
+            return ea;
         }
 
         public static ExecArgs Update(string table, AlterArgs args)

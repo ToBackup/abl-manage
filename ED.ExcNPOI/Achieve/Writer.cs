@@ -25,12 +25,12 @@ namespace ED.NPOI.Achieve
                     if(string.IsNullOrEmpty(newPath))
                     {
                         if (work is XSSFWorkbook)
-                            newPath = "Result_*.xlsx";
+                            newPath = "R_*.xlsx";
                         else if (work is HSSFWorkbook)
-                            newPath = "Result_*.xls";
+                            newPath = "R_*.xls";
                         
                         //string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, newPath);
-                        newPath = newPath.Replace("*", DateTime.Now.ToString("yyyyMMddHHmmss")/*files.Length.ToString()*/);
+                        newPath = newPath.Replace("*", DateTime.Now.ToString("yyyy-MM-dd_HHmmss")/*files.Length.ToString()*/);
                     }
 
                     using (FileStream fs = new FileStream(newPath, FileMode.Create, FileAccess.Write))
@@ -56,12 +56,8 @@ namespace ED.NPOI.Achieve
                 if (c == null)
                     c = row.CreateCell(cell.ColumnIndex);
 
-                try
-                {
-                    c.SetCellValue(cell.Value);
-                    return true;
-                }
-                catch { return false; }
+                c.SetCellValue(cell.Value);
+                return true;
             }
             return false;
         }

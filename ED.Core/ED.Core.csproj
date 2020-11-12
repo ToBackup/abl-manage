@@ -68,7 +68,9 @@
     <Compile Include="IEDInstance.cs" />
     <Compile Include="IEDLoad.cs" />
     <Compile Include="IEDSett.cs" />
+    <Compile Include="IProgress.cs" />
     <Compile Include="Model\EDArgs.cs" />
+    <Compile Include="ProgressAbstract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

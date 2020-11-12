@@ -14,9 +14,15 @@ namespace ED.ExcRely.Model
             this.RowIndex = rowIndex;
             this.ColumnIndex = columnindex;
         }
-        public dynamic Value { get; private set; }
+        public dynamic Value { get; set; }
         public int RowIndex { get; private set; }
         public int ColumnIndex { get; private set; }
+
+        public void SetPoint(int row,int column)
+        {
+            RowIndex = row;
+            ColumnIndex = column;
+        }
         
         public static implicit operator string(Cell cell)
         {

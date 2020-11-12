@@ -39,9 +39,9 @@ namespace ED.NPOI.Achieve
             }
         }
 
-        public int RowCount => sheet?.LastRowNum??-1 + 1;
+        public int RowCount => (sheet?.LastRowNum??-1) + 1;
 
-        public int ColumnCount => row?.LastCellNum??-1 + 1;
+        public int ColumnCount => (row?.LastCellNum??-1) + 1;
 
         public IEnumerable<Cell> Columns => new CellCollection(row?.Cells);
 
@@ -49,7 +49,7 @@ namespace ED.NPOI.Achieve
         {
             Position++;
             bool isHasRow = false;
-            if (Position<RowCount)
+            if (Position < RowCount)
                 isHasRow = true;
             return isHasRow;
         }

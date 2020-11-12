@@ -9,5 +9,7 @@ namespace ED.Core
     {
         string Read(string key);
         bool Write(string key, string value);
+
+        string[] Reads(string contains);
     }
 }

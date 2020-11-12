@@ -7,7 +7,8 @@ namespace ED.ExcRely
 {
     public interface IExcStream : IDisposable
     {
-        bool Open(string path);
+        bool Open(string path = null);
         void Close();
+        string FileName { get; }
     }
 }

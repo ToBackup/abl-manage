@@ -9,3 +9,8 @@ E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.DbRely\bin\Debu
 E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.DbRely\obj\Debug\ED.DbRely.csproj.CoreCompileInputs.cache
 E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.DbRely\obj\Debug\ED.DbRely.dll
 E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.DbRely\obj\Debug\ED.DbRely.pdb
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.DbRely\bin\Debug\ED.DbRely.dll
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.DbRely\bin\Debug\ED.DbRely.pdb
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.DbRely\obj\Debug\ED.DbRely.csproj.CoreCompileInputs.cache
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.DbRely\obj\Debug\ED.DbRely.dll
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.DbRely\obj\Debug\ED.DbRely.pdb

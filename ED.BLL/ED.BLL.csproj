@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB37DD53-692F-43E3-9533-65552DAA326B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ED.BLL</RootNamespace>
+    <AssemblyName>ED.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CalculatePort\CalculateI.cs" />
+    <Compile Include="CalculatePort\ICalculation.cs" />
+    <Compile Include="CalculatePort\ResultCollection.cs" />
+    <Compile Include="CalculatePort\ResultSet.cs" />
+    <Compile Include="CalculatePort\ResultSetI.cs" />
+    <Compile Include="CellPort\CellByI.cs" />
+    <Compile Include="CellPort\ICellHelper.cs" />
+    <Compile Include="CollectionPort\CqCollection.cs" />
+    <Compile Include="CollectionPort\GroupI.cs" />
+    <Compile Include="CollectionPort\IGroup.cs" />
+    <Compile Include="CollectionPort\Key.cs" />
+    <Compile Include="CqPort\CqByI.cs" />
+    <Compile Include="CqPort\ICqHelper.cs" />
+    <Compile Include="Each.cs" />
+    <Compile Include="ExcelPort\IOutPut.cs" />
+    <Compile Include="ExcelPort\OutPutI.cs" />
+    <Compile Include="Export.cs" />
+    <Compile Include="Load\LoadI.cs" />
+    <Compile Include="Model\CellArgs.cs" />
+    <Compile Include="Model\Cq.cs" />
+    <Compile Include="Model\File.cs" />
+    <Compile Include="Model\Sample.cs" />
+    <Compile Include="Model\Target.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sett\XmlSett.cs" />
+    <Compile Include="VerifyPort\FileValidation.cs" />
+    <Compile Include="VerifyPort\IExtractValidation.cs" />
+    <Compile Include="VerifyPort\SampleValidation.cs" />
+    <Compile Include="VerifyPort\TargetValidation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ED.Core\ED.Core.csproj">
+      <Project>{6013fabe-dffd-4949-8790-34012dda8670}</Project>
+      <Name>ED.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ED.DbRely\ED.DbRely.csproj">
+      <Project>{f94ce9af-9a36-4182-a9a4-64e4a1b35109}</Project>
+      <Name>ED.DbRely</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ED.ExcRely\ED.ExcRely.csproj">
+      <Project>{a03ee2ac-b757-4c5e-baea-fedab6bcd287}</Project>
+      <Name>ED.ExcRely</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

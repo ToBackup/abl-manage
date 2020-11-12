@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace ED.SQLite.Single
@@ -76,6 +77,14 @@ namespace ED.SQLite.Single
         public void Close()
         {
             Dispose();
+        }
+
+        public int Insert<T>(T tag)
+        {
+            ExecArgs ea = ArgsHelper.Insert(tag);
+
+            return ExecEditor(ea.Text, ea.Type, ea.Param);
+
         }
     }
 }
