@@ -10,19 +10,17 @@ namespace ED.BLL.VerifyPort
     {
         public string Extract(string name)
         {
-
-            string match = "[0-9]{4}-[0-9]{2}-[0-9]{2}";
+            string match = @"[0-9]{4}-[0-9]{2}-[0-9]{2}";
             Regex reg = new Regex(match);
-
+            string str = reg.Match(name).Value;
             return reg.Match(name).Value;
         }
 
         public bool IsMeet(string name)
         {
-            bool meet = false;
-            string match = ".*[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}-[0-9]{2}-[0-9]{2}.*";
+            string match = @".*[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}-[0-9]{2}-[0-9]{2}.*";
             Regex reg = new Regex(match);
-            meet = reg.IsMatch(name);
+            bool meet = reg.IsMatch(name);
             return meet;
         }
     }

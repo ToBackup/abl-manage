@@ -20,6 +20,7 @@ using ED.BLL.VerifyPort;
 using ED.BLL.CollectionPort;
 using ED.BLL.CalculatePort;
 using ED.BLL.ExcelPort;
+using ED.BLL.Sett;
 
 namespace ED.BLL.Load
 {
@@ -32,8 +33,10 @@ namespace ED.BLL.Load
         private readonly IGroup clt; //分组集合接口
         ICalculation ccl = null; //计算接口
         IOutPut output = null; //输出接口
+        IExcInstance excIns = null;
+        IDbInstance dbIns = null;
 
-        public LoadI()
+        public LoadI(IEDSett set,IExcInstance excins,IDbInstance dbins)
         {
             cc = new CellByI();
             evFile = new FileValidation();
@@ -42,7 +45,10 @@ namespace ED.BLL.Load
             cqGrouper = new CqByI(evTarget, evSample);
             clt = new GroupI();
             ccl = new CalculateI();
-            output = new OutPutI();
+            output = new OutPutI(excins);
+
+            joinDb = Convert.ToBoolean(set.Read("JoinDb"));
+
         }
 
         public event ProgressOfDelegate ProgressEvent;
@@ -82,7 +88,7 @@ namespace ED.BLL.Load
 
             if(joinDb)
             {
-                using(IDbQuery query = DbInstance.GetQuery("Cq"))
+                using(IDbQuery query = dbIns.GetQuery("Cq"))
                 {
                     List<Cq> cqs = query.SelectToList<Cq>(null);
 
@@ -145,7 +151,7 @@ namespace ED.BLL.Load
                 bool readed = false;
                 if(joinDb)
                 {
-                    using(IDbQuery query = DbInstance.GetQuery("File"))
+                    using(IDbQuery query = dbIns.GetQuery("File"))
                     {
                         if(query !=null)
                         {
@@ -168,7 +174,7 @@ namespace ED.BLL.Load
                 //循环读取
                 if (!readed)
                 {
-                    using (IExcReader reader = ExcInstance.GetReader())
+                    using (IExcReader reader = excIns.GetReader())
                     {
                         bool isopen = reader?.Open(info.FullName) ?? false;
 

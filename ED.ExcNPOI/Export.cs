@@ -1,4 +1,5 @@
 ﻿using ED.ExcRely;
+using ED.NPOI.Achieve;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +11,13 @@ namespace ED.NPOI
     {
         public IExcReader GetReader()
         {
-            Type type = Type.GetType("ED.NPOI.Achieve.Reader");
-            IExcReader reader = Activator.CreateInstance(type) as IExcReader;
-
+            IExcReader reader = new Reader();
             return reader;
         }
 
         public IExcWriter GetWriter()
         {
-            Type type = Type.GetType("ED.NPOI.Achieve.Writer");
-            IExcWriter writer = Activator.CreateInstance(type) as IExcWriter;
-
+            IExcWriter writer = new Writer();
             return writer;
         }
     }

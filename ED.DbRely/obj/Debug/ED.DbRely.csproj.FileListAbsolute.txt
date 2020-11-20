@@ -14,3 +14,4 @@ E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.DbRely\bin\Debug\ED.DbRel
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.DbRely\obj\Debug\ED.DbRely.csproj.CoreCompileInputs.cache
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.DbRely\obj\Debug\ED.DbRely.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.DbRely\obj\Debug\ED.DbRely.pdb
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.DbRely\obj\Debug\ED.DbRely.csprojAssemblyReference.cache

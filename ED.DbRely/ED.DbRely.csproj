@@ -49,7 +49,6 @@
     <Compile Include="Model\AddedArgs.cs" />
     <Compile Include="Model\AlterArgs.cs" />
     <Compile Include="Model\DbParams.cs" />
-    <Compile Include="Model\DbArgs.cs" />
     <Compile Include="Model\QueryArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

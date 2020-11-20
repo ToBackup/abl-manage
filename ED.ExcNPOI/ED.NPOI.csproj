@@ -67,15 +67,14 @@
     <Compile Include="Achieve\Stream.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ED.ExcRely\ED.ExcRely.csproj">
-      <Project>{a03ee2ac-b757-4c5e-baea-fedab6bcd287}</Project>
-      <Name>ED.ExcRely</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ED.Core\ED.Core.csproj">
+      <Project>{6013fabe-dffd-4949-8790-34012dda8670}</Project>
+      <Name>ED.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -83,18 +82,17 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\ILMerge.3.0.41\build\ILMerge.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILMerge.3.0.41\build\ILMerge.props'))" />
   </Target>
-	<Target Name="ILMerge">
-		<Exec Command="&quot;$(ILMergeConsolePath)&quot; /ndebug /out:$(OutputPath)$(AssemblyName).dll $(OutputPath)$(AssemblyName).dll $(OutputPath)ICSharpCode.SharpZipLib.dll $(OutputPath)NPOI.dll $(OutputPath)NPOI.OOXML.dll $(OutputPath)NPOI.OpenXml4Net.dll $(OutputPath)NPOI.OpenXmlFormats.dll /targetplatform:v4" />
-	</Target>
-	<Target Name="_ProjectRemoveDependencyFiles" AfterTargets="AfterBuild" DependsOnTargets="ILMerge">
-		<ItemGroup>
-			<_ProjectDependencyFile Include="$(OutputPath)ICSharpCode.SharpZipLib.dll" />
-			<_ProjectDependencyFile Include="$(OutputPath)NPOI.dll" />
-			<_ProjectDependencyFile Include="$(OutputPath)NPOI.OOXML.dll" />
-			<_ProjectDependencyFile Include="$(OutputPath)NPOI.OpenXml4Net.dll" />
-			<_ProjectDependencyFile Include="$(OutputPath)NPOI.OpenXmlFormats.dll" />
-		</ItemGroup>
-		<Delete Files="@(_ProjectDependencyFile)" />
-	</Target>
-
+  <Target Name="ILMerge">
+    <Exec Command="&quot;$(ILMergeConsolePath)&quot; /ndebug /out:$(OutputPath)$(AssemblyName).dll $(OutputPath)$(AssemblyName).dll $(OutputPath)ICSharpCode.SharpZipLib.dll $(OutputPath)NPOI.dll $(OutputPath)NPOI.OOXML.dll $(OutputPath)NPOI.OpenXml4Net.dll $(OutputPath)NPOI.OpenXmlFormats.dll /targetplatform:v4" />
+  </Target>
+  <Target Name="_ProjectRemoveDependencyFiles" AfterTargets="AfterBuild" DependsOnTargets="ILMerge">
+    <ItemGroup>
+      <_ProjectDependencyFile Include="$(OutputPath)ICSharpCode.SharpZipLib.dll" />
+      <_ProjectDependencyFile Include="$(OutputPath)NPOI.dll" />
+      <_ProjectDependencyFile Include="$(OutputPath)NPOI.OOXML.dll" />
+      <_ProjectDependencyFile Include="$(OutputPath)NPOI.OpenXml4Net.dll" />
+      <_ProjectDependencyFile Include="$(OutputPath)NPOI.OpenXmlFormats.dll" />
+    </ItemGroup>
+    <Delete Files="@(_ProjectDependencyFile)" />
+  </Target>
 </Project>

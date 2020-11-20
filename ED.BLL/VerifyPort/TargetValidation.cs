@@ -18,12 +18,10 @@ namespace ED.BLL.VerifyPort
             else
                 return null;
         }
-
         public bool IsMeet(string name)
         {
-            bool meet = false;
             Regex reg = new Regex("P|M.+");
-            meet = reg.IsMatch(name);
+            bool meet = reg.IsMatch(name);
             return meet;
         }
     }

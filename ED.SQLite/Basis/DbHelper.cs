@@ -58,10 +58,14 @@ namespace ED.SQLite.Basis
             isStartTrans = false;
         }
 
-        public void OpenConn()
+        public void Open()
         {
             if (conn.State != ConnectionState.Open)
                 conn.Open();
+        }
+        public void Close()
+        {
+            Dispose();
         }
         protected int ExecEditor(string cmdText, CommandType type, params SQLiteParameter[] param)
         {

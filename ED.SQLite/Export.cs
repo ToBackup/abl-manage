@@ -18,7 +18,6 @@ namespace ED.SQLite
         public Export() 
         {
             this.db = ConfigurationManager.ConnectionStrings["SQLite"].ConnectionString;
-
             CreateDb();
         }
         public Export(string db)
@@ -45,7 +44,6 @@ namespace ED.SQLite
             return has;
 
         }
-
         private void CreateDb()
         {
             if(!isHasDir(db))

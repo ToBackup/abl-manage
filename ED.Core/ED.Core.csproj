@@ -64,12 +64,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbRely\IDbAlter.cs" />
+    <Compile Include="DbRely\IDbInstance.cs" />
+    <Compile Include="DbRely\IDbQuery.cs" />
+    <Compile Include="DbRely\IDbTrans.cs" />
+    <Compile Include="DbRely\Model\AddedArgs.cs" />
+    <Compile Include="DbRely\Model\AlterArgs.cs" />
+    <Compile Include="DbRely\Model\DbParams.cs" />
+    <Compile Include="DbRely\Model\QueryArgs.cs" />
     <Compile Include="EDInstance.cs" />
+    <Compile Include="ExcRely\IExcInstance.cs" />
+    <Compile Include="ExcRely\IExcReader.cs" />
+    <Compile Include="ExcRely\IExcStream.cs" />
+    <Compile Include="ExcRely\IExcWriter.cs" />
+    <Compile Include="ExcRely\Model\Cell.cs" />
+    <Compile Include="IComponent.cs" />
     <Compile Include="IEDInstance.cs" />
     <Compile Include="IEDLoad.cs" />
     <Compile Include="IEDSett.cs" />
     <Compile Include="IProgress.cs" />
-    <Compile Include="Model\EDArgs.cs" />
+    <Compile Include="Model\Config.cs" />
+    <Compile Include="Model\PortArgs.cs" />
+    <Compile Include="Model\SettBase.cs" />
+    <Compile Include="Model\Setts.cs" />
     <Compile Include="ProgressAbstract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

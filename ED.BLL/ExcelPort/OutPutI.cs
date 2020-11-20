@@ -15,6 +15,12 @@ namespace ED.BLL.ExcelPort
 {
     class OutPutI : ProgressAbstract, IOutPut
     {
+        IExcInstance excIns;
+        public OutPutI(IExcInstance excins)
+        {
+            excIns = excins;
+        }
+
         public override string Tag { get; set; } = "输出到 Excel";
 
         public void ToExcel(IGroup group, ResultCollection result)
@@ -22,7 +28,7 @@ namespace ED.BLL.ExcelPort
             double single = (double)(Maximum-Progress) / group.Lists.Count;
             
             LLNCC node = group.Lists.First;
-            using(IExcWriter writer = ExcInstance.GetWriter())
+            using(IExcWriter writer = excIns.GetWriter())
             {
                 writer.Open();
 

@@ -12,13 +12,17 @@ using ED.Core;
 //using ED.Logic.Achieve;
 using ED.DbRely.Model;
 using System.Data;
+using System.Configuration;
+using System.Drawing;
+using ED.Core.Model;
+using ED.BLL.Model;
 //using ED.Logic.Model.Excel;
 
 namespace ED.CLI
 {
     class Program
     {
-        static T t1 = new T();
+        //static T t1 = new T("");
         static void Main(string[] args)
         {
             //string xls = @"E:\Den_2020-09-14\Den\App\数据2020-8-31 174255\2020.08.30-3(E008-E009后4对，纯化，不纯化，1-10，无破碎）\2020.08.30-3结果分析.xls";
@@ -28,17 +32,14 @@ namespace ED.CLI
             dic = @"E:\Den_2020-09-14\Den\App\仪器Excel";
             //dic = @"E:\Den_2020-09-14\Den\App\数据2020-8-31 174255";
             //dic = @"E:\Den_2020-09-14\Den\App\数据2020-8-31 174255\2020.08.30-2(E008中间7对，纯化，不纯化，1-10，无破碎）";
-            //IEDSett set = new DbSett();
 
-
-            DateTime dtStart = DateTime.Now;
-            IEDLoad load = EDInstance.GetLoad("I");
-            load.ProgressEvent += Load_ProgressEvent;
-            load.Load(100,dic);
-
-            DateTime dtEnd = DateTime.Now;
-
-            Console.WriteLine((dtEnd - dtStart).TotalMilliseconds);
+            //DateTime dtStart = DateTime.Now;
+            //IEDLoad load = EDInstance.GetLoad("I");
+            //load.ProgressEvent += Load_ProgressEvent;
+            //load.Load(100, dic);
+            //DateTime dtEnd = DateTime.Now;
+            //Console.WriteLine((dtEnd - dtStart).TotalMilliseconds);
+            ////IEDSett set = EDInstance.GetSett("User");
 
             Console.ReadKey(); 
         }
@@ -48,21 +49,25 @@ namespace ED.CLI
             Console.CursorLeft = 0;
             Console.CursorTop = 0;
             Console.WriteLine(string.Format("{0} - {1}中",Math.Round(pro) + "%", tag));
-            //Console.WriteLine(Math.Round(pro) + "%");
         }
     }
-
-    public class Config
+    sealed class Port : SettBase
     {
+        public Port(string tag)
+        {
+            this.Tag = tag;
+        }
+        public string DllName { get; set; }
+        public string ClassName { get; set; }
+        public string[] Args { get; set; }
+        public override string Tag { get; protected set; }
+    }
+
+    sealed class Config : SettBase
+    {
+        public override string Tag { get; protected set; } = "Config";
         public string Key { get; set; }
         public string Value { get; set; }
-
-        public T t1 { get; set; }
-    }
-    public class T
-    {
-        public dynamic[] Values { get; set; }
     }
 
-    
 }

@@ -11,42 +11,28 @@ namespace ED.Core
 {
     public static class EDInstance
     {
-        private static IEDInstance GetInstance(EDArgs args)
+        private static IEDInstance GetInstance()
         {
-            if (args == null)
-            {
-                var cfa = ConfigurationManager.GetSection("External/Logic") as IDictionary;
-                string[] keys = new string[cfa.Keys.Count];
-                cfa.Keys.CopyTo(keys, 0);
-                string db = (string)cfa[keys[0]];
+            Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-                string[] sargs = db.Split('|');
-                if (sargs.Length > 0)
-                {
-                    args = new EDArgs()
-                    {
-                        DllName = keys[0],
-                        ClassName = sargs[0],
-                        Args = sargs.Length > 1 && !string.IsNullOrEmpty(sargs[1]) ? sargs[1]?.Split(',') : null
-                    };
-                }
-            }
-            Type type = Assembly.LoadFrom(args.DllName)?.GetType(args.ClassName);
-            IEDInstance instance = Activator.CreateInstance(type, args.Args) as IEDInstance;
+            //Type type = Assembly.LoadFrom(args.DllName)?.GetType(args.ClassName);
+            //IEDInstance instance = Activator.CreateInstance(type, args.Args) as IEDInstance;
 
-            return instance;
+            //return instance;
+            return null;
         }
-        public static IEDLoad GetLoad(string name,EDArgs args = null)
+        public static IEDLoad GetLoad(string name)
         {
-            IEDInstance instance = GetInstance(args);
+            IEDInstance instance = GetInstance();
 
             return instance.GetEDLoad(name);
         }
-        public static IEDSett GetSett(string name,EDArgs args = null)
+        public static IEDSett GetSett(string name)
         {
-            IEDInstance instance = GetInstance(args);
+            IEDInstance instance = GetInstance();
 
-            return instance.GetEDSett(name);
+            return instance.GetEDSett();
         }
+
     }
 }

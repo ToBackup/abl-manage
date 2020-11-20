@@ -28,15 +28,15 @@ E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.ExcNPOI\obj\Deb
 E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.ExcNPOI\obj\Debug\ED.NPOI.csprojAssemblyReference.cache
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\ED.NPOI.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\ED.NPOI.pdb
-E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\ED.ExcRely.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\ICSharpCode.SharpZipLib.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\NPOI.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\NPOI.OOXML.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\NPOI.OpenXml4Net.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\NPOI.OpenXmlFormats.dll
-E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\ED.ExcRely.pdb
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\obj\Debug\ED.NPOI.csprojAssemblyReference.cache
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\obj\Debug\ED.NPOI.csproj.CoreCompileInputs.cache
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\obj\Debug\ED.NPOI.csproj.CopyComplete
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\obj\Debug\ED.NPOI.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\obj\Debug\ED.NPOI.pdb
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\ED.Core.dll
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.ExcNPOI\bin\Debug\ED.Core.pdb

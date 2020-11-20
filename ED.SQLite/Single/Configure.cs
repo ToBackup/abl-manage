@@ -69,22 +69,17 @@ namespace ED.SQLite.Single
             return ExecEditor(ea.Text, ea.Type, ea.Param);
         }
 
-        public void Open()
-        {
-            OpenConn();
-        }
-
-        public void Close()
-        {
-            Dispose();
-        }
-
         public int Insert<T>(T tag)
         {
             ExecArgs ea = ArgsHelper.Insert(tag);
 
             return ExecEditor(ea.Text, ea.Type, ea.Param);
 
+        }
+
+        public int Update<T>(T tag, AlterArgs args)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -63,8 +63,9 @@
     <Compile Include="Model\File.cs" />
     <Compile Include="Model\Sample.cs" />
     <Compile Include="Model\Target.cs" />
+    <Compile Include="Port.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sett\XmlSett.cs" />
+    <Compile Include="Sett\UserSett.cs" />
     <Compile Include="VerifyPort\FileValidation.cs" />
     <Compile Include="VerifyPort\IExtractValidation.cs" />
     <Compile Include="VerifyPort\SampleValidation.cs" />
@@ -74,14 +75,6 @@
     <ProjectReference Include="..\ED.Core\ED.Core.csproj">
       <Project>{6013fabe-dffd-4949-8790-34012dda8670}</Project>
       <Name>ED.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ED.DbRely\ED.DbRely.csproj">
-      <Project>{f94ce9af-9a36-4182-a9a4-64e4a1b35109}</Project>
-      <Name>ED.DbRely</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ED.ExcRely\ED.ExcRely.csproj">
-      <Project>{a03ee2ac-b757-4c5e-baea-fedab6bcd287}</Project>
-      <Name>ED.ExcRely</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -20,11 +20,11 @@ E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.SQLite\obj\x86\
 E:\100-项目代码箱\110-进行中项目\QPCR数据\ED.Core\ED.SQLite\obj\x86\Debug\ED.SQLite.pdb
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\bin\x86\Debug\ED.SQLite.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\bin\x86\Debug\ED.SQLite.pdb
-E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\bin\x86\Debug\ED.DbRely.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\bin\x86\Debug\System.Data.SQLite.dll
-E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\bin\x86\Debug\ED.DbRely.pdb
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\obj\x86\Debug\ED.SQLite.csprojAssemblyReference.cache
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\obj\x86\Debug\ED.SQLite.csproj.CoreCompileInputs.cache
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\obj\x86\Debug\ED.SQLite.csproj.CopyComplete
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\obj\x86\Debug\ED.SQLite.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\obj\x86\Debug\ED.SQLite.pdb
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\bin\x86\Debug\ED.Core.dll
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.SQLite\bin\x86\Debug\ED.Core.pdb

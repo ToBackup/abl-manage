@@ -47,7 +47,6 @@
     <Compile Include="IExcStream.cs" />
     <Compile Include="IExcWriter.cs" />
     <Compile Include="Model\Cell.cs" />
-    <Compile Include="Model\ExcArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -56,16 +56,12 @@ E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.CLI.
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.CLI.exe
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.CLI.pdb
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.Core.dll
-E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.DbRely.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.NPOI.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.SQLite.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\System.Data.SQLite.dll
-E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.ExcRely.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.Core.pdb
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.SQLite.pdb
-E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.DbRely.pdb
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.NPOI.pdb
-E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\bin\x86\Debug\ED.ExcRely.pdb
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\obj\x86\Debug\ED.CLI.csprojAssemblyReference.cache
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\obj\x86\Debug\ED.CLI.csproj.CoreCompileInputs.cache
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.CLI\obj\x86\Debug\ED.CLI.csproj.CopyComplete

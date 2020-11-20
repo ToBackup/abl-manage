@@ -73,17 +73,18 @@
     <Compile Include="Model\ExecArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Single\Configure.cs" />
+    <Compile Include="Single\CqDb.cs" />
     <Compile Include="Single\DataBase.cs" />
     <Compile Include="Single\DefaltTrans.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ED.DbRely\ED.DbRely.csproj">
-      <Project>{f94ce9af-9a36-4182-a9a4-64e4a1b35109}</Project>
-      <Name>ED.DbRely</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\ED.Core\ED.Core.csproj">
+      <Project>{6013fabe-dffd-4949-8790-34012dda8670}</Project>
+      <Name>ED.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

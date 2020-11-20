@@ -8,6 +8,6 @@ namespace ED.Core
     public interface IEDInstance
     {
         IEDLoad GetEDLoad(string name);
-        IEDSett GetEDSett(string name);
+        IEDSett GetEDSett();
     }
 }
