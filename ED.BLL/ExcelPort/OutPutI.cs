@@ -15,106 +15,101 @@ namespace ED.BLL.ExcelPort
 {
     class OutPutI : ProgressAbstract, IOutPut
     {
-        IExcInstance excIns;
-        public OutPutI(IExcInstance excins)
-        {
-            excIns = excins;
-        }
+        IExcWriter writer;
 
         public override string Tag { get; set; } = "输出到 Excel";
 
-        public void ToExcel(IGroup group, ResultCollection result)
+        public void ToExcel(IGroup group,IExcWriter writer, ResultCollection result)
         {
+            this.writer = writer;
             double single = (double)(Maximum-Progress) / group.Lists.Count;
             
             LLNCC node = group.Lists.First;
-            using(IExcWriter writer = excIns.GetWriter())
+            writer.Open();
+
+            int row = 0;
+            Dictionary<string, int> kv = WriteHeader( group.Samples, ref row);
+            while (node != null)
             {
-                writer.Open();
+                CqCollection cqs = node.Value;
 
-                int row = 0;
-                Dictionary<string,int> kv = WriteHeader(writer, group.Samples, ref row);
-                while (node != null)
+                WriteCol( row, kv, node, result);
+
+                LLNCC next = node.Next;
+                if (next != null)
                 {
-                    CqCollection cqs = node.Value;
-
-                    WriteCol(writer, row, kv, node, result);
-
-                    LLNCC next = node.Next;
-                    if (next != null)
+                    int mark = cqs.Key.CompareTo(next.Value.Key);
+                    switch (mark)
                     {
-                        int mark = cqs.Key.CompareTo(next.Value.Key);
-                        switch (mark)
-                        {
-                            case 3:
-                            case -3:
-                                break;
-                            case 2:
-                            case -2:
-                                break;
-                            case 1:
-                            case -1:
-                                //创建表头
-                                row += 7;
-                                WriteHeader(writer, group.Samples, ref row);
-                                row--;
-                                break;
-                            case 0:
-                                break;
-                        }
+                        case 3:
+                        case -3:
+                            break;
+                        case 2:
+                        case -2:
+                            break;
+                        case 1:
+                        case -1:
+                            //创建表头
+                            row += 7;
+                            WriteHeader( group.Samples, ref row);
+                            row--;
+                            break;
+                        case 0:
+                            break;
                     }
-                    row++;
-                    node = node.Next;
-
-                    Progress += single;
                 }
+                row++;
+                node = node.Next;
 
-                writer.Save();
+                Progress += single;
             }
+
+            writer.Save();
+            writer.Close();
         }
 
-        private Dictionary<string,int> WriteHeader(IExcWriter writer,LinkedList<string> samples, ref int row)
+        private Dictionary<string,int> WriteHeader(LinkedList<string> samples, ref int row)
         {
             Dictionary<string, int> spKV = new Dictionary<string, int>();
             int col = 0;
-            Write(writer,"来源及姓名", row,col++);
-            Write(writer,"日期", row, col++);
-            Write(writer,"破碎", row, col++);
-            Write(writer, "Target", row, col++);
-            Write(writer, "诊断结果", row, col++);
+            Write("来源及姓名", row,col++);
+            Write("日期", row, col++);
+            Write("破碎", row, col++);
+            Write("Target", row, col++);
+            Write("诊断结果", row, col++);
 
             foreach (string sp in samples)
             {
                 spKV.Add(sp, col);
-                Write(writer, "Sample", row, col++);
-                Write(writer, "Cq", row, col++);
+                Write( "Sample", row, col++);
+                Write( "Cq", row, col++);
                 col += 2;
             }
 
             row++;
             return spKV;
         }
-        private void WriteCol(IExcWriter writer, int row, Dictionary<string,int> samples, LLNCC cqsNode, ResultCollection result)
+        private void WriteCol(int row, Dictionary<string,int> samples, LLNCC cqsNode, ResultCollection result)
         {
             CqCollection cqs = cqsNode.Value;
             Cq first = cqs[cqs.SamplesExist[0]];
 
-            Write(writer, first.Target.Branch, row, 3);
-            Write(writer, first.File.Date.ToString("yyyy-MM-dd"), row, 1);
+            Write(first.Target.Branch, row, 3);
+            Write( first.File.Date.ToString("yyyy-MM-dd"), row, 1);
 
 
             foreach (KeyValuePair<string,int> sp in samples)
             {
-                Write(writer, sp.Key, row, sp.Value);
+                Write( sp.Key, row, sp.Value);
 
                 Cq cq = cqs[sp.Key];
                 if (cq!=null)
                 {
 
                     if(cq.Sample.Name !=cq.Sample.Branch)
-                        Write(writer, cq.Sample.Branch, row, sp.Value);
+                        Write( cq.Sample.Branch, row, sp.Value);
 
-                    Write(writer, cq.Value, row, sp.Value + 1);
+                    Write( cq.Value, row, sp.Value + 1);
                 }
 
                 ResultSetI rsi = new ResultSetI(cqs.Key, sp.Key);
@@ -132,7 +127,7 @@ namespace ED.BLL.ExcelPort
                             {
                                 double value = rsi.Result[x, y];
                                 if(value>0)
-                                    Write(writer, value, row + y, col + x);
+                                    Write( value, row + y, col + x);
                             }
                         }
                     }
@@ -140,10 +135,10 @@ namespace ED.BLL.ExcelPort
             }
         }
 
-        private void Write(IExcWriter w,dynamic v,int r,int c)
+        private void Write(dynamic v,int r,int c)
         {
             Cell cell = new Cell(v, r, c++);
-            w.Write(cell);
+            writer.Write(cell);
         }
     }
 }

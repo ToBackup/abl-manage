@@ -26,29 +26,33 @@ namespace ED.BLL.Load
 {
     class LoadI :IEDLoad
     {
-        private bool joinDb;
-        private ICellHelper cc = null;  //单元格接口
-        private ICqHelper cqGrouper = null; //Cq接口
-        private readonly IExtractValidation evFile, evTarget, evSample; //验证接口
-        private readonly IGroup clt; //分组集合接口
+        bool joinDb;
+        ICellHelper cc = null;  //单元格接口
+        ICqHelper cqGrouper = null; //Cq接口
+        IExtractValidation evFile/*, evTarget, evSample*/; //验证接口
+        IGroup clt; //分组集合接口
         ICalculation ccl = null; //计算接口
         IOutPut output = null; //输出接口
         IExcInstance excIns = null;
         IDbInstance dbIns = null;
+        IEDSett set = null;
 
-        public LoadI(IEDSett set,IExcInstance excins,IDbInstance dbins)
+        public LoadI(Port port)
         {
-            cc = new CellByI();
-            evFile = new FileValidation();
-            evTarget = new TargetValidation();
-            evSample = new SampleValidation();
-            cqGrouper = new CqByI(evTarget, evSample);
-            clt = new GroupI();
-            ccl = new CalculateI();
-            output = new OutPutI(excins);
 
-            joinDb = Convert.ToBoolean(set.Read("JoinDb"));
+            joinDb = Convert.ToBoolean(port.Set.Read("JoinDb"));
 
+            cc = port.cc;
+            evFile = port.evFile;
+            IExtractValidation evTarget = port.evTarget;
+            IExtractValidation evSample = port.evSample;
+            cqGrouper = port.cqGrouper;
+            clt = port.clt;
+            ccl = port.ccl;
+            output = port.output;
+            excIns = port.excIns;
+            dbIns = port.dbIns;
+            set = port.Set;
         }
 
         public event ProgressOfDelegate ProgressEvent;
@@ -115,7 +119,7 @@ namespace ED.BLL.Load
             {
                 output.SetProgress(secondStage, maxPro);
                 output.ProgressEvent += this.ProgressEvent;
-                output.ToExcel(clt, rc);
+                output.ToExcel(clt,excIns.GetWriter(), rc);
                 output.ProgressEvent -= this.ProgressEvent;
             }
 

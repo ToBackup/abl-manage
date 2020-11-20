@@ -53,7 +53,6 @@ namespace ED.NPOI.Achieve
                 isHasRow = true;
             return isHasRow;
         }
-
         public List<SSCell> Get()
         {
             

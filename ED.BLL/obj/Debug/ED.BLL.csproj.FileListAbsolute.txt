@@ -7,3 +7,8 @@ E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.BLL\obj\Debug\ED.BLL.cspr
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.BLL\obj\Debug\ED.BLL.csproj.CopyComplete
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.BLL\obj\Debug\ED.BLL.dll
 E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.BLL\obj\Debug\ED.BLL.pdb
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.BLL\bin\Debug\ED.NPOI.dll
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.BLL\bin\Debug\ED.SQLite.dll
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.BLL\bin\Debug\System.Data.SQLite.dll
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.BLL\bin\Debug\ED.SQLite.pdb
+E:\Den\000_收集箱\030_克隆仓库\ED\abl-manage\ED.BLL\bin\Debug\ED.NPOI.pdb

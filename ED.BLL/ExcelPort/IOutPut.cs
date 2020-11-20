@@ -1,6 +1,7 @@
 ﻿using ED.BLL.CalculatePort;
 using ED.BLL.CollectionPort;
 using ED.Core;
+using ED.ExcRely;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace ED.BLL.ExcelPort
 {
     interface IOutPut :IProgress
     {
-        void ToExcel(IGroup group, ResultCollection result);
+        void ToExcel(IGroup group,IExcWriter writer, ResultCollection result);
     }
 }

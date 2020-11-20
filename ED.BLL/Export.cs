@@ -1,8 +1,13 @@
-﻿using ED.BLL.Load;
+﻿using ED.BLL.CalculatePort;
+using ED.BLL.CellPort;
+using ED.BLL.CollectionPort;
+using ED.BLL.CqPort;
+using ED.BLL.ExcelPort;
+using ED.BLL.Load;
 using ED.BLL.Model;
 using ED.BLL.Sett;
+using ED.BLL.VerifyPort;
 using ED.Core;
-using ED.Core.Model;
 using ED.DbRely;
 using ED.DbRely.Model;
 using ED.ExcRely;
@@ -18,20 +23,33 @@ namespace ED.BLL
     {
         IExcInstance excIns;
         IDbInstance dbIns;
-        public Export(PortArgs xls,PortArgs db)
+        public Export()
         {
-            Port excPort = new Port(xls.DllName, xls.ClassName, xls.Args);
-            excIns = excPort.HasFile ? excPort.GetInstance<IExcInstance>() : null;
-            Port dbPort = new Port(db.DllName, xls.ClassName, xls.Args);
-            dbIns = dbPort.HasFile ? dbPort.GetInstance<IDbInstance>() : null;
+            excIns = new NPOI.Export();
+            dbIns = new SQLite.Export();
         }
 
         public IEDLoad GetEDLoad(string name)
         {
             IEDLoad load = null;
+            Port port = new Port()
+            {
+                cc = new CellByI(),
+                evFile = new FileValidation(),
+                evTarget = new TargetValidation(),
+                evSample = new SampleValidation(),
+                clt = new GroupI(),
+                ccl = new CalculateI(),
+                output = new OutPutI(),
+                excIns = excIns,
+                dbIns = dbIns,
+                Set = GetEDSett()
+            };
+            port.cqGrouper = new CqByI(port.evTarget, port.evSample);
+
             switch (name)
             {
-                case "I":load = new LoadI(GetEDSett(),excIns,dbIns);break;
+                case "I":load = new LoadI(port);break;
 
                 default:
                     break;
@@ -40,17 +58,11 @@ namespace ED.BLL
             return load;
         }
 
+
         public IEDSett GetEDSett()
         {
             IEDSett set = null;
-            
-            DirectoryInfo dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-            if (dbIns!=null)
-            {
-            }
-            else
-                set = new UserSett();
-
+            set = new UserSett();
             return set;
         }
     }
