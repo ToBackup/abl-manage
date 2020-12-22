@@ -13,9 +13,9 @@ namespace ED.BLL.CollectionPort
         Key LastKey { get; }
         Dictionary<Key,LinkedListNode<CqCollection>> Buoy { get;}
         LinkedList<CqCollection> Lists { get;}
-        Key GetKey(Cq cq);
+        Key GetKey(Record cq);
         bool HasKey(Key key);
         Key AddKey(Key key);
-        void InsertCq(Cq cq,Key key);
+        void InsertCq(Record cq,Key key);
     }
 }

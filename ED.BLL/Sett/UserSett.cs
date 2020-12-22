@@ -21,7 +21,14 @@ namespace ED.BLL.Sett
 
         public void Write(string key, string value)
         {
-            ConfigurationManager.AppSettings[key] = value;
+            Configuration cfg = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            if (cfg.AppSettings.Settings.AllKeys.Contains(key))
+                cfg.AppSettings.Settings[key].Value = value;
+            else
+                cfg.AppSettings.Settings.Add(key, value);
+
+            cfg.Save();
+            ConfigurationManager.RefreshSection("appSettings");
         }
 
         //    private Type GetSett<T>(T tag) where T:SettBase

@@ -9,7 +9,7 @@ namespace ED.BLL.CqPort
 {
     interface ICqHelper
     {
-        Cq ConvertToCq(CellArgs args);
-        void InsertToCollection(Cq cq,IGroup clt);
+        Record ConvertToCq(CellArgs args);
+        void InsertToCollection(Record cq,IGroup clt);
     }
 }

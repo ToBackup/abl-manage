@@ -8,7 +8,7 @@ namespace ED.BLL.CollectionPort
 {
     class CqCollection
     {
-        Dictionary<string, Cq> _cqs;
+        Dictionary<string, Record> _cqs;
 
         public LinkedList<string> Samples { get; set; }
         public List<string> SamplesExist => _cqs.Keys.ToList();
@@ -16,11 +16,11 @@ namespace ED.BLL.CollectionPort
 
         public CqCollection()
         {
-            _cqs = new Dictionary<string, Cq>();
+            _cqs = new Dictionary<string, Record>();
             Samples = new LinkedList<string>();
         }
 
-        public Cq this[string sp]
+        public Record this[string sp]
         {
             get => Samples.Contains(sp) && _cqs.ContainsKey(sp) ? _cqs[sp] : null;
             set
@@ -30,8 +30,9 @@ namespace ED.BLL.CollectionPort
             }
         }
 
+        public List<Record> Records => _cqs.Values.ToList();
 
-        private void SetCq(Cq value,string sp)
+        private void SetCq(Record value,string sp)
         {
             if (!_cqs.ContainsKey(sp))
                 _cqs.Add(sp, value);

@@ -18,16 +18,19 @@ namespace ED.BLL
 {
     class Port
     {
-        public ICellHelper cc = null;  //单元格接口
-        public ICqHelper cqGrouper = null; //Cq接口
-        public IExtractValidation evFile/*, evTarget, evSample*/; //验证接口
-        public IGroup clt; //分组集合接口
-        public ICalculation ccl = null; //计算接口
-        public IOutPut output = null; //输出接口
-        public IExcInstance excIns = null;
-        public IDbInstance dbIns = null;
-        public IExtractValidation evTarget = new TargetValidation();
-        public IExtractValidation evSample = new SampleValidation();
-        public IEDSett Set;
+        public IExtractValidation EvTarget { get; set; }
+        public IExtractValidation EvSample { get; set; }
+        public bool JoinDb { get; set; }
+        public ICellHelper CellHelper { get; set; }//单元格接口
+        public ICqHelper CqHelper { get; set; } //Cq接口
+        public IExtractValidation EvFile { get; set; } //验证接口
+        public IGroup Group { get; set; } //分组集合接口
+        public ICalculation Calculation { get; set; } //计算接口
+        public IOutPut Output { get; set; }//输出接口
+        public IExcInstance ExcIns { get; set; }
+        public IDbInstance DbIns { get; set; }
+        //public IEDSett Set { get; set; }
+
+
     }
 }

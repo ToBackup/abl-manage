@@ -32,38 +32,58 @@ namespace ED.BLL
         public IEDLoad GetEDLoad(string name)
         {
             IEDLoad load = null;
-            Port port = new Port()
-            {
-                cc = new CellByI(),
-                evFile = new FileValidation(),
-                evTarget = new TargetValidation(),
-                evSample = new SampleValidation(),
-                clt = new GroupI(),
-                ccl = new CalculateI(),
-                output = new OutPutI(),
-                excIns = excIns,
-                dbIns = dbIns,
-                Set = GetEDSett()
-            };
-            port.cqGrouper = new CqByI(port.evTarget, port.evSample);
+            IEDSett set = GetEDSett();
+            Port port;
+
 
             switch (name)
             {
-                case "I":load = new LoadI(port);break;
+                case "I":
+                    port = new Port()
+                    {
+                        CellHelper = new CellHelperI(),
+                        EvFile = new FileValidation(),
+                        EvTarget = new TargetValidation(),
+                        EvSample = new SampleValidation(),
+                        Group = new GroupI(),
+                        Calculation = new CalculateI(),
+                        Output = new OutPutI(),
+                        ExcIns = excIns,
+                        DbIns = dbIns,
+                        JoinDb = Convert.ToBoolean(set.Read("JoinDb"))
+                    };
+                    port.CqHelper = new CqHelperI(port.EvTarget, port.EvSample);
+                    load = new Load.LoadI(port);
+                    break;
+                case "II":
+                    port = new Port()
+                    {
+                        CellHelper = new CellHelperI(),
+                        EvFile = new FileValidation(),
+                        EvTarget = new TargetValidation(),
+                        EvSample = new SampleValidation(),
+                        Group = new GroupII(),
+                        Calculation = new CalculateI(),
+                        Output = new OutPutII(),
+                        ExcIns = excIns,
+                        DbIns = dbIns,
+                        JoinDb = Convert.ToBoolean(set.Read("JoinDb"))
+                    };
+                    port.CqHelper = new CqHelperII(port.EvTarget, port.EvSample);
 
+                    load = new LoadII(port);break;
                 default:
                     break;
             }
 
             return load;
         }
-
-
         public IEDSett GetEDSett()
         {
             IEDSett set = null;
             set = new UserSett();
             return set;
         }
+
     }
 }

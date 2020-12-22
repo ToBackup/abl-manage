@@ -73,7 +73,7 @@
     <Compile Include="Model\ExecArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Single\Configure.cs" />
-    <Compile Include="Single\CqDb.cs" />
+    <Compile Include="Single\Cq.cs" />
     <Compile Include="Single\DataBase.cs" />
     <Compile Include="Single\DefaltTrans.cs" />
   </ItemGroup>

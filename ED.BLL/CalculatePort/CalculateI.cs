@@ -71,7 +71,7 @@ namespace ED.BLL.CalculatePort
                     CqCollection cqs = node.Value;
                     int mark = cqs.Key.CompareTo(preCqs.Key);
 
-                    string name = cqs[cqs.SamplesExist[0]].Target.Branch;
+                    string name = cqs[cqs.SamplesExist[0]].TargetName;
 
                     switch (mark)
                     {

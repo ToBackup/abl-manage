@@ -13,27 +13,27 @@ using LLNCC = System.Collections.Generic.LinkedListNode<ED.BLL.CollectionPort.Cq
 
 namespace ED.BLL.ExcelPort
 {
-    class OutPutI : ProgressAbstract, IOutPut
+    class OutPutI : OutPutBase
     {
-        IExcWriter writer;
+        private IExcWriter _writer;
 
-        public override string Tag { get; set; } = "输出到 Excel";
+        protected override IExcWriter Writer => _writer;
 
-        public void ToExcel(IGroup group,IExcWriter writer, ResultCollection result)
+        public override void ToExcel(IGroup group,IExcWriter writer, ResultCollection result)
         {
-            this.writer = writer;
+            _writer = writer;
             double single = (double)(Maximum-Progress) / group.Lists.Count;
             
             LLNCC node = group.Lists.First;
             writer.Open();
 
             int row = 0;
-            Dictionary<string, int> kv = WriteHeader( group.Samples, ref row);
+            Dictionary<string, int> kv = WriteHeader( group.Samples, row++);
             while (node != null)
             {
                 CqCollection cqs = node.Value;
 
-                WriteCol( row, kv, node, result);
+                WriteRow( row, kv, node, result);
 
                 LLNCC next = node.Next;
                 if (next != null)
@@ -51,8 +51,7 @@ namespace ED.BLL.ExcelPort
                         case -1:
                             //创建表头
                             row += 7;
-                            WriteHeader( group.Samples, ref row);
-                            row--;
+                            WriteHeader( group.Samples, row);
                             break;
                         case 0:
                             break;
@@ -68,7 +67,7 @@ namespace ED.BLL.ExcelPort
             writer.Close();
         }
 
-        private Dictionary<string,int> WriteHeader(LinkedList<string> samples, ref int row)
+        protected override Dictionary<string,int> WriteHeader(LinkedList<string> samples, int row)
         {
             Dictionary<string, int> spKV = new Dictionary<string, int>();
             int col = 0;
@@ -86,59 +85,17 @@ namespace ED.BLL.ExcelPort
                 col += 2;
             }
 
-            row++;
             return spKV;
         }
-        private void WriteCol(int row, Dictionary<string,int> samples, LLNCC cqsNode, ResultCollection result)
+        protected override void WriteRow(int row, Dictionary<string,int> samples, LLNCC cqsNode, ResultCollection result)
         {
             CqCollection cqs = cqsNode.Value;
-            Cq first = cqs[cqs.SamplesExist[0]];
+            Record first = cqs[cqs.SamplesExist[0]];
+            Write(first.TargetName, row, 3);
+            Write( first.Date.ToString("yyyy-MM-dd"), row, 1);
 
-            Write(first.Target.Branch, row, 3);
-            Write( first.File.Date.ToString("yyyy-MM-dd"), row, 1);
-
-
-            foreach (KeyValuePair<string,int> sp in samples)
-            {
-                Write( sp.Key, row, sp.Value);
-
-                Cq cq = cqs[sp.Key];
-                if (cq!=null)
-                {
-
-                    if(cq.Sample.Name !=cq.Sample.Branch)
-                        Write( cq.Sample.Branch, row, sp.Value);
-
-                    Write( cq.Value, row, sp.Value + 1);
-                }
-
-                ResultSetI rsi = new ResultSetI(cqs.Key, sp.Key);
-                string key = rsi.Key;
-                if (result.Results.ContainsKey(rsi.Key))
-                {
-                    rsi = result.Results[rsi.Key] as ResultSetI;
-
-                    if (rsi.Node == cqsNode)
-                    {
-                        int col = sp.Value + 2;
-                        for (int x = 0; x < rsi.X; x++)
-                        {
-                            for (int y = 0; y < rsi.Y; y++)
-                            {
-                                double value = rsi.Result[x, y];
-                                if(value>0)
-                                    Write( value, row + y, col + x);
-                            }
-                        }
-                    }
-                }
-            }
+            base.WriteRow(row, samples, cqsNode, result);
         }
 
-        private void Write(dynamic v,int r,int c)
-        {
-            Cell cell = new Cell(v, r, c++);
-            writer.Write(cell);
-        }
     }
 }

@@ -30,6 +30,10 @@ namespace ED.Core
             Maximum = maximum;
             Progress = start;
         }
+        protected virtual void OnProgress(double pro,string tag)
+        {
+            ProgressEvent?.Invoke(pro, tag);
+        }
     }
 
 }

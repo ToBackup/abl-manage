@@ -73,7 +73,7 @@ namespace ED.SQLite.Basis
 
         }
 
-        public static ExecArgs Insert<T>(T tag)
+        public static ExecArgs Insert<T>(T tag,params string[] keys)
         {
             Type tTag = tag.GetType();
             string skey = string.Empty;
@@ -84,6 +84,9 @@ namespace ED.SQLite.Basis
             PropertyInfo[] ppts = tTag.GetProperties(BindingFlags.Public | BindingFlags.Instance);
             foreach (PropertyInfo ppt in ppts)
             {
+                if (keys.Contains(ppt.Name))
+                    continue;
+
                 object obj = ppt.GetValue(tag, null);
                 if (obj == null)
                     continue;
@@ -109,6 +112,8 @@ namespace ED.SQLite.Basis
                 svalue += string.Format("@{0},", ppt.Name);
             }
             param = list.ToArray();
+            skey = skey.Remove(skey.Length - 1);
+            svalue = svalue.Remove(svalue.Length - 1);
 
             string cmdText = string.Format("Insert Into {0} ({1}) Values ({2})", tTag.Name, skey, svalue);
 

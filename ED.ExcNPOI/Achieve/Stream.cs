@@ -27,7 +27,10 @@ namespace ED.NPOI.Achieve
 
         public void Dispose()
         {
-            this.Close();
+            //this.Close();
+            work = null;
+            sheet = null;
+            GC.Collect();
         }
 
 

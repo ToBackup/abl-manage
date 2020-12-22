@@ -10,25 +10,25 @@ namespace ED.NPOI.Model
 {
     class CellCollection : IEnumerable<Cell>
     {
-        List<ICell> _cells;
-        public CellCollection(List<ICell> cells)
+        List<Cell> _cells;
+        public CellCollection(List<Cell> cells)
         {
             _cells = cells;
         }
 
-        public CellEnum GetCells()
-        {
-            return new CellEnum(_cells);
-        }
+        //public CellEnum GetCells()
+        //{
+        //    return new CellEnum(_cells);
+        //}
 
         public IEnumerator<Cell> GetEnumerator()
         {
-            return GetCells();
+            return _cells.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetCells();
+            return _cells.GetEnumerator();
         }
     }
 }

@@ -69,9 +69,9 @@ namespace ED.SQLite.Single
             return ExecEditor(ea.Text, ea.Type, ea.Param);
         }
 
-        public int Insert<T>(T tag)
+        public int Insert<T>(T tag,params string[] keys)
         {
-            ExecArgs ea = ArgsHelper.Insert(tag);
+            ExecArgs ea = ArgsHelper.Insert(tag,keys);
 
             return ExecEditor(ea.Text, ea.Type, ea.Param);
 

@@ -22,14 +22,14 @@ namespace ED.SQLite
         }
         public Export(string db)
         {
-            if (!string.IsNullOrEmpty(db) && isHasDir(db))
+            if (!string.IsNullOrEmpty(db) && IsHasDir(db))
                 this.db = db;
             else
                 this.db = ConfigurationManager.ConnectionStrings["SQLite"].ConnectionString;
             CreateDb();
         }
 
-        private bool isHasDir(string db)
+        private bool IsHasDir(string db)
         {
             bool has = false;
             string[] sdb = db?.Split(';')[0]?.Split('|');
@@ -46,7 +46,7 @@ namespace ED.SQLite
         }
         private void CreateDb()
         {
-            if(!isHasDir(db))
+            if(!IsHasDir(db))
             {
                 AddedArgs param = new AddedArgs(new DbParams[]
                 {
@@ -59,6 +59,21 @@ namespace ED.SQLite
                 DataBase dbh = new DataBase(db);
                 dbh.CreateTable(args);
 
+                param = new AddedArgs(new DbParams[]
+                {
+                    new DbParams("ID","INTEGER PRIMARY KEY AUTOINCREMENT"),
+                    new DbParams("FID","STRING"),
+                    new DbParams("File","STRING"),
+                    new DbParams("Date","DATETIME"),
+                    new DbParams("TargetKey","STRING"),
+                    new DbParams("TargetName","STRING"),
+                    new DbParams("SampleKey","STRING"),
+                    new DbParams("SampleName","STRING"),
+                    new DbParams("Value","DOUBLE")
+                });
+                args = ArgsHelper.Create("Table", "Record", param);
+                dbh.CreateTable(args);
+                    
             }
         }
 

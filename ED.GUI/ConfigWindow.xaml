@@ -1,0 +1,44 @@
+﻿<as:MetroWindow x:Class="ED.GUI.ConfigWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ED.GUI"
+        xmlns:uc="clr-namespace:ED.GUI.UC"
+        xmlns:as="clr-namespace:AduSkin.Controls.Metro;assembly=AduSkin"
+        mc:Ignorable="d" Name="mw"
+        Title="配置" Height="450" Width="800" Icon="{x:Null}" BorderBrush="#16a085"
+        Closing="MetroWindow_Closing">
+    <Grid Margin="10">
+        <Grid.Resources>
+        </Grid.Resources>
+        
+        <Border>
+            <as:AduNavigationPanel Name="anp" IndicatorPlacement="Top"
+                               IndicatorMargin="0" IndicatorHorizontalAlignment="Center"
+                               MaxHeight="300">
+                <as:MetroScrollViewer HorizontalScrollBarVisibility="Disabled" Foreground="#16a085">
+                    <StackPanel>
+                        <as:AduGroupBoxNor Header="File匹配设置" Height="300"
+                                           HeaderBackground="Transparent" BorderThickness="0" FontSize="14" HeaderPadding="10,6">
+                            <uc:GroupTextbox x:Name="gtTarget" LeftContext="测试12314124" RightContext="测试2"/>
+                        </as:AduGroupBoxNor>
+                        <as:AduGroupBoxNor Header="Sample 匹配设置" Height="300" HeaderBackground="Transparent" BorderThickness="0" FontSize="14" HeaderPadding="10,6">
+                        <uc:GroupTextbox x:Name="gtSample"/>
+                    </as:AduGroupBoxNor>
+                        <as:AduGroupBoxNor Header="File 匹配设置" Height="300" HeaderBackground="Transparent" BorderThickness="0" FontSize="14" HeaderPadding="10,6">
+                        <uc:GroupTextbox x:Name="gtFile"/>
+                    </as:AduGroupBoxNor>
+                        <as:AduGroupBoxNor Header="其他设置" Height="300" HeaderBackground="Transparent" BorderThickness="0" FontSize="14" HeaderPadding="10,6">
+                        <WrapPanel Orientation="Vertical">
+                            <as:AduCheckBox Name="cbJoinDb" Content="是否连接数据库" Margin="10"/>
+                        </WrapPanel>
+                    </as:AduGroupBoxNor>
+                </StackPanel>
+            </as:MetroScrollViewer>
+        </as:AduNavigationPanel>
+
+        </Border>
+    </Grid>
+</as:MetroWindow>
+

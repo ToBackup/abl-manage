@@ -81,7 +81,6 @@
     <Compile Include="Achieve\Writer.cs" />
     <Compile Include="Export.cs" />
     <Compile Include="Model\CellCollection.cs" />
-    <Compile Include="Model\CellEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Achieve\Reader.cs" />
     <Compile Include="Achieve\Stream.cs" />

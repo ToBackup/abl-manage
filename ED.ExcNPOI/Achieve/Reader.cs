@@ -43,8 +43,7 @@ namespace ED.NPOI.Achieve
 
         public int ColumnCount => (row?.LastCellNum??-1) + 1;
 
-        public IEnumerable<Cell> Columns => new CellCollection(row?.Cells);
-
+        public IEnumerable<Cell> Columns => new CellCollection(ToList(row?.Cells));
         public bool Read()
         {
             Position++;
@@ -57,6 +56,19 @@ namespace ED.NPOI.Achieve
         {
             
             return row.Cells;
+        }
+
+        private List<Cell> ToList(List<SSCell> cells)
+        {
+            List<Cell> list = new List<Cell>();
+            if(cells!=null)
+            {
+                for (int i = 0; i < cells.Count; i++)
+                {
+                    list.Add(new Cell(GetValue(cells[i]), Position, i));
+                }
+            }
+            return list;
         }
     }
 }

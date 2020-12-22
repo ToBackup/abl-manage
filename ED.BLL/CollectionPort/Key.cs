@@ -34,20 +34,20 @@ namespace ED.BLL.CollectionPort
             //return 0;
 
             //一级判断
-            if (LevelI.CompareTo(other.LevelI) > 0)
+            if (LevelI?.CompareTo(other.LevelI) > 0)
                 return 1;
-            else if (LevelI.CompareTo(other.LevelI) < 0)
+            else if (LevelI?.CompareTo(other.LevelI) < 0)
                 return -1;
             //二级判断
-            if (LevelII.CompareTo(other.LevelII) > 0)
+            if (LevelII?.CompareTo(other.LevelII) > 0)
                 return 2;
-            else if (LevelII.CompareTo(other.LevelII) < 0)
+            else if (LevelII?.CompareTo(other.LevelII) < 0)
                 return -2;
 
             //三级判断
-            if (LevelIII.CompareTo(other.LevelIII) > 0)
+            if (LevelIII?.CompareTo(other.LevelIII) > 0)
                 return 3;
-            else if (LevelIII.CompareTo(other.LevelIII) < 0)
+            else if (LevelIII?.CompareTo(other.LevelIII) < 0)
                 return -3;
             else
                 return 0;
@@ -80,11 +80,11 @@ namespace ED.BLL.CollectionPort
             {
                 if (prop.Name.Contains("Level"))
                 {
-                    string value = prop.GetValue(this, null).ToString();
+                    string value = prop.GetValue(this, null)?.ToString();
 
-                    char[] c = value.ToCharArray();
+                    char[] c = value?.ToCharArray();
 
-                    for (int i = 0; i < c.Length; i += 2)
+                    for (int i = 0; i < c?.Length; i += 2)
                     {
                         string x2 = string.Format("{0}{1}", c[i], c[i + 1]);
                         number = int.Parse(x2, System.Globalization.NumberStyles.HexNumber);
